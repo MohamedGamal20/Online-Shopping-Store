@@ -1,0 +1,18 @@
+﻿@model Online_Shopping_Store.Models.Category
+
+@{
+    ViewBag.Title = "Brose";
+}
+
+<h2>Browse : @Model.Name</h2>
+
+<ul>
+    @foreach (var item in Model.Items)
+    {
+        <li>
+            @Html.ActionLink(item.Title, "Details",new { id=item.ItemId})
+        </li>
+
+    }
+
+</ul>

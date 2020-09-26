@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="~/Home/Index" class="navbar-brand  ">
+                    <img src="~/Images/download.png"  class="logo" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Store", "Index", "Store")</li>
+                    <li>@Html.ActionLink("StoreManager", "Index", "StoreManager")</li>
+                    <li class="btn btn-success">@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+
+            </div>
+        </div>
+    </div>
+    <ul>
+        <li>@{Html.RenderAction("CategoryMenu", "Store");}</li>
+    </ul>
+    <div class="container body-content">
+        @RenderBody()
+        </div>
+        <hr />
+        <footer class="navbar myfooter" style=" margin-bottom:0px;">
+            <div class="end" style="  margin-bottom: 0px; background-color: black; color: white; padding: 10px; text-align: center; overflow: hidden;">
+                <p>&copy; @DateTime.Now.Year - Online Shopping Store Application</p>
+            </div>
+        </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
